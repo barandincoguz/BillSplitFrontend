@@ -1,0 +1,76 @@
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+    overflow-y: auto;
+    height: calc(100vh - 10px);
+    width: 100vh;
+
+}
+.processCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	border: none;
+	margin: 20px;
+	border-radius: 12px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+	font-size: 18px;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.processCard .tick {
+    position: absolute;
+    right: 1.5rem;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+
+.processCard:hover {
+	transform: translateY(-5px); /* Hover etkisi ile yukarı kaydırma */
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+}
+
+#hesapla {
+    position: absolute;
+    bottom:calc(10vh - 2.5rem);
+    left:50px;
+    width: 280px;
+    height: 40px;
+    padding: 12px;
+    background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4  51%, #E55D87  100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #eee;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    cursor: pointer;
+}
+#hesapla:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+.pText {
+    color: #333;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2)
+}
+@media (max-height: 768px) {
+    #hesapla {
+        position: static; /* Butonu static yaparak konumunu otomatik düzenlemesini sağlarız */
+        margin: 20px auto; /* Butonu ortalar */
+        width: 80%; /* Genişliği ekranın %80'ine ayarlayın */
+        bottom: initial; /* Absolute konumlandırmayı kaldırın */
+        left: initial; /* Absolute konumlandırmayı kaldırın */
+    }
+
+}

@@ -1,0 +1,183 @@
+/* Reset default margins and paddings */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%; /* Add this line */
+    overflow: hidden; /* Hide horizontal scrollbar */
+    background-image: linear-gradient(to left, #30cfd0 0%, #330867 100%);
+    font-family: cursive;
+}
+.editForm {
+    z-index: 10;
+    position: fixed; /* Changed to fixed to center on screen */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    overflow: hidden;
+}
+.editForm .mainForm {
+    border: 1px solid rgba(209, 209, 209, 0.3); /* Light border */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95); /* Slightly opaque white background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    margin-bottom: 20px;
+}
+.editForm .mainForm .form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333; /* Dark color for better readability */
+}
+.editForm .mainForm .form input {
+    width: calc(100% - 24px); /* Adjust width to fit within padding */
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editForm .mainForm .form input:focus {
+    border-width: 2px;
+    border-color: #007bff; /* Changed to a blue color for better focus visibility */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
+}
+.buttons {
+    width: 100%;
+    padding: 12px;
+    background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4 51%, #E55D87 100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-position 0.5s, color 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.buttons:hover {
+    background-position: right center; /* Change the direction of the gradient */
+    color: #fff;
+}
+/* Error message styling */
+.editForm .mainForm .form h4 {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Sidebar styling with glass effect */
+.sidebar {
+    height: calc(100vh - 20px); /* Adjust height to account for padding */
+    width: 100%; /* Adjust width to screen width */
+    max-width: 800px; /* Adjust width as needed */
+    backdrop-filter: blur(10px); /* Applies blur to the background */
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    padding: 20px 20px 0 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px; /* Slightly rounded corners */
+}
+
+/* Styling for form section with glass effect */
+.mainForm {
+    flex: 1;
+    border: 0 solid rgba(209, 209, 209, 0.1); /* Lighter border */
+    border-radius: 8px;
+    width: 100%;
+    padding: 20px;
+    background: transparent; /* Slightly transparent background */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for list section */
+.listPersons {
+    border: none; /* Removed */
+    border-radius: 12px; /* More rounded corners */
+    width: 50%;
+    height: 95%;
+    background-color: transparent;
+    padding: 20px; /* Wider inner padding */
+    overflow-y: auto;
+}
+
+/* Form element styling */
+.sidebar form {
+    width: 100%;
+}
+
+/* Label styling */
+.sidebar label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #f9f9f9;
+}
+
+/* Input styling */
+.sidebar input {
+    width: calc(100% - 22px); /* Adjust to fit within padding */
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Input focus styling */
+.sidebar input:focus {
+    border-width: 2px;
+    border-color: #f030aa46;
+    outline: none;
+}
+
+.sidebar button:hover {
+    background-position: right center; /* Change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Error message styling */
+.sidebar h4 {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Person card styling with glass effect */
+.personCard {
+    border: none; /* Removed */
+    border-radius: 12px; /* More rounded corners */
+    padding: 15px; /* Wider inner padding */
+    margin-bottom: 20px; /* More space */
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Softer shadow */
+    font-size: 18px; /* Larger font size */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation effects */
+    overflow: auto;
+}
+
+.personCard:hover {
+    transform: translateY(-5px); /* Hover effect to move up */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+}
+
+.personCard div {
+    margin-bottom: 10px; /* Space between sections */
+}
+
+.personCard strong {
+    color: #333; /* Dark color for titles */
+}
