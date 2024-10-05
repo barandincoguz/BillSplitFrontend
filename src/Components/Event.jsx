@@ -14,6 +14,7 @@ const Event = () => {
   const dateDotRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
 
   const navigate = useNavigate();
+  const token = localStorage.getItem("token")
 
   {
     /* 
@@ -24,14 +25,20 @@ const Event = () => {
   const fetchEventList = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/event/getAllEvents"
-      );
-      setEventList(response.data); // Listeyi güncelle
-      console.log("Liste getirildi", response.data);
-    } catch (error) {
-      console.log("Veri çekme hatası:", error);
-    }
-  };
+      "http://localhost:8080/api/event/getAllEvents"
+    , 
+        { 
+          headers : { 
+            Authorization : `Bearer ${token}`,
+          },
+        }
+  );
+    setEventList(response.data); // Listeyi güncelle
+    console.log("Liste getirildi", response.data);
+  } catch (error) {
+    console.log("Veri çekme hatası:", error);
+  }
+};
 
   {
     /* 
