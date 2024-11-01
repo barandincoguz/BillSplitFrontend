@@ -1,25 +1,37 @@
-// WelcomeDashboard.js
-import { useNavigate} from 'react-router-dom'; // Import useHistory hook
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./styles/WelcomeDashboard.css"; // Import custom styles
 
-function WelcomeDashboard({ username }) {
-    const history = useNavigate();
+function WelcomeDashboard() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Retrieve username from localStorage or fallback to default
+    const username = localStorage.getItem("username") || "User";
+
+    // Store username in localStorage if it exists in location.state
+    useEffect(() => {
+        if (location.state?.email) {
+            localStorage.setItem("username", location.state.email);
+        }
+    }, [location.state]);
 
     const handleLogout = () => {
-        // Perform logout actions here (e.g., clear session, remove authentication token)
-        // After logout, redirect to the login page
-        history('/');
+        // Clear username from localStorage on logout
+        localStorage.removeItem("username");
+        navigate("/");
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="border rounded-lg p-4" style={{width: '500px', height: '400px'}}>
-                <h2 className="mb-4 text-center">Welcome to Dashboard</h2>
-                <p className="mb-4 text-center">Hello, {username}!</p>
-                <p className="text-center">You are logged in successfully.</p>
-                <div className="text-center">
-                    <button type="button" className="btn btn-primary mt-3" onClick={handleLogout}>Logout</button>
-                </div>
-            </div>
+        <div className="glass-container text-center p-4">
+            <h4 className="mb-3 text-white">Welcome, {username}!</h4>
+            <button
+                type="button"
+                className="btn btn-light mt-3"
+                onClick={handleLogout}
+            >
+                Logout
+            </button>
         </div>
     );
 }
