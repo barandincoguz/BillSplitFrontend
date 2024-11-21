@@ -12,8 +12,8 @@ const Event = () => {
     const [error, setError] = useState("");
     const [isEditing, setIsEditing] = useState(false);
     const [editEventId, setEditEventId] = useState(null);
-    const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
-    const dateDotRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
+    //const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+    // const dateDotRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
     const navigate = useNavigate();
 
     // Fetch the event list
@@ -41,7 +41,7 @@ const Event = () => {
             setError("Etkinlik adı ve Tarihini giriniz");
             return;
         }
-        if (!dateRegex.test(date) && !dateDotRegex.test(date)) {
+        if (!date) {
             setError(
                 "Tarih formatı geçerli değil. Lütfen DD/MM/YYYY formatında girin."
             );
@@ -91,7 +91,7 @@ const Event = () => {
             setError("Etkinlik adı ve Tarihini giriniz ");
             return;
         }
-        if (!(dateRegex.test(date) || dateDotRegex.test(date))) {
+        if (!date) {
             setError(
                 "Tarih formatı geçerli değil. Lütfen DD/MM/YYYY veya DD.MM.YYYY formatında girin."
             );
@@ -120,7 +120,7 @@ const Event = () => {
 
     return (
         <div className="EventFormAndList">
-            <WelcomeDashboard />
+            <WelcomeDashboard className="dashboard" />
             <div className="eventForm">
                 {isEditing ? (
                     <>
@@ -152,7 +152,7 @@ const Event = () => {
                             placeholder="Etkinlik adı giriniz"
                         />
                         <input
-                            type="text"
+                            type="date"
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
                             placeholder="GG/AA/YYYY VEYA GG.AA.YYYY"

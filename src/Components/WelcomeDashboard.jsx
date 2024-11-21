@@ -24,7 +24,9 @@ function WelcomeDashboard() {
 
     return (
         <div className="glass-container text-center p-4">
-            <h4 className="mb-3 text-white">Welcome, {username}!</h4>
+            <h4 className="mb-3 text-white">
+                Welcome, {username.split("@")[0]} :)
+            </h4>
             <button
                 type="button"
                 className="btn btn-light mt-3"

@@ -52,7 +52,8 @@ body, html {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
 }
 .buttons {
-    width: 100%;
+    width:20em;
+    margin-top: 2rem;
     padding: 12px;
     background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4 51%, #E55D87 100%);
     text-align: center;

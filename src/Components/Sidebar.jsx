@@ -276,7 +276,7 @@ const Sidebar = ({ eventId }) => {
                         />
                         {error && <h4>{error}</h4>}
                         <button type="submit" className="buttons">
-                            KİŞİ EKLE
+                            EKLE
                         </button>
                     </form>
                     <div className="eventCardWrapper">
